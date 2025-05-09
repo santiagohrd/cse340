@@ -54,6 +54,16 @@ nav li {
   position: relative;
 }
 
+.banner picture {
+  display: flex;
+  justify-content: center;
+}
+.banner picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+
 .banner-info {
   position: absolute;
   top: 0;
@@ -97,7 +107,7 @@ nav li {
 
 .upgrade-img {
   width: 150px;
-  height: 100px;
+  height: 80px;
   background-color: blue;
 }
 
@@ -116,5 +126,19 @@ nav li {
     margin: 0 auto;
     border: solid 3px blueviolet;
     border-radius: 12px;
+  }
+
+  .auto-description {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  .upgrades {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .auto-reviwes {
+    grid-column: 2 / 3;
   }
 }
