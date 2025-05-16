@@ -17,6 +17,11 @@ WHERE account_email = 'tony@starkent.com';
 DELETE FROM public.account
 WHERE account_email = 'tony@starkent.com';
 
+  -- The description update
+UPDATE public.inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'huge interior')
+WHERE inv_make = 'GM' AND inv_model = 'Hummer';
+
 -- Select query using a JOIN
 SELECT inv_make, inv_model, classification_name
 FROM public.inventory AS i
@@ -24,7 +29,7 @@ INNER JOIN public.classification AS c
 	ON i.classification_id = c.classification_id
 WHERE classification_name = 'Sport';
 
--- Description update 
+-- Update file path 
 UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'huge interior')
 WHERE inv_make = 'GM' AND inv_model = 'Hummer';
