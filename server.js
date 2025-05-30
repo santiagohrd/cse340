@@ -50,7 +50,7 @@ app.use(function(req, res, next){
 /* ***********************
  * Routes
  *************************/
-app.use(static)
+app.use(require("./routes/static"));
 
 // Index route
 // app.get("/", function(req, res){
@@ -59,7 +59,9 @@ app.use(static)
 
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
-app.use("/inv", inventoryRoute)
+app.use("/inv", require("./routes/inventoryRoute"));
+
+app.use("/account", require("./routes/accountRoute"));
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
