@@ -10,6 +10,9 @@ router.get("/login", utilities.handleErrors(accController.buildLogin));
 // Register view
 router.get("/register", utilities.handleErrors(accController.buildRegister));
 
+// Process of registration
+router.post("/register", utilities.handleErrors(accController.registerAccount));
+
 
 module.exports = router;
 
