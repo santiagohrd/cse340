@@ -14,8 +14,9 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
+const accountRoute = require("./routes/accountRoute")
 const inventoryRoute = require("./routes/inventoryRoute")
-const utilities = require("./utilities/")
+const utilities = require("./utilities")
 
 /* ***********************
  * View Engine and Templates
@@ -46,6 +47,10 @@ app.use(function(req, res, next){
   next()
 })
 
+app.use((req, res, next) => {
+  res.locals.flash = req.flash();
+  next();
+});
 
 /* ***********************
  * Routes

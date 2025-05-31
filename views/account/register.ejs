@@ -1,0 +1,27 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
+   
+  <%- messages() %>
+
+  <form action="/account/register" method="POST">
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="account_firstname" required><br>
+
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="account_lastname" required><br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" name="account_email" required><br><br>
+
+    <span class="form-note">
+        Password must be at least 12 characters and include 1 uppercase letter, 1 number, and 1 special character.
+      </span><br>
+      <input type="password" id="password" name="account_password" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="account_password" required><br><br>
+
+    <button type="submit">Register</button>
+  </form>
