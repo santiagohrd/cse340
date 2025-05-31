@@ -17,6 +17,7 @@ const baseController = require("./controllers/baseController")
 const accountRoute = require("./routes/accountRoute")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities")
+const bodyParser = require("body-parser");
 
 /* ***********************
  * View Engine and Templates
@@ -46,6 +47,10 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+
+// Process Registration
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use((req, res, next) => {
   res.locals.flash = req.flash();
