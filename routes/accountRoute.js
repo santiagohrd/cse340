@@ -2,6 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const accController = require("../controllers/accountController");
 const utilities = require("../utilities");
+const regValidate = require('../utilities/account-validation')
 
 // Login view
 router.get("/login", utilities.handleErrors(accController.buildLogin));
@@ -11,7 +12,10 @@ router.get("/login", utilities.handleErrors(accController.buildLogin));
 router.get("/register", utilities.handleErrors(accController.buildRegister));
 
 // Process of registration
-router.post("/register", utilities.handleErrors(accController.registerAccount));
+router.post("/register", 
+    regValidate.registationRules(),
+    regValidate.checkRegData,
+    utilities.handleErrors(accController.registerAccount));
 
 
 module.exports = router;
